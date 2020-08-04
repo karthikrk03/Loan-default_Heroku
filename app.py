@@ -41,6 +41,9 @@ response=['CA','1997','80','4','2','0','0','0','55000','55000','50000','0','0','
 
 @app.route('/predict',methods=['POST'])
 def predict():
+    '''
+    For rendering results on HTML GUI
+    '''
     response=[x for x in request.form.values()]
     a=float(state_value.loc[state_value.State==response[0],'Value'])
     response[0]=a
@@ -52,7 +55,7 @@ def predict():
     
     if pred==1:
         
-        return render_template("Home.html",predicted="The person defaults")
+        return render_template("Home.html",predicted="The person default")
     return render_template("Home.html",predicted="The person doesn't default")
 
 @app.route('/')
