@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[39]:
 
 
 from flask import Flask,request,render_template 
@@ -50,16 +50,15 @@ def predict():
     response=sc.transform(response)
     pred=model.predict(response)
     
-    
     if pred==1:
         
-        return render_template("Home.html",predicted="The person default")
-    return render_template("Home.html",predicted="The person doesn't default")
+        return render_template('Home.html',predicted='The person default')
+    return render_template('Home.html',predicted='The person does not default')
 
 @app.route('/')
 def home():
-    return render_template("Home.html")
+    return render_template('Home.html')
 
-if __name__=="__main__":
+if __name__== "__main__":
     app.run(debug=True)
 
