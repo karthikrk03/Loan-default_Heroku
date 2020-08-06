@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[39]:
+# In[42]:
 
 
 from flask import Flask,request,render_template 
@@ -36,7 +36,7 @@ state_value=pd.DataFrame(columns=["State","Value"])
 state_value["State"]=state
 state_value["Value"]=prob
 
-response=['CA','1997','80','4','2','0','0','0','55000','55000','50000','0','0','1','2000']
+#response=['CA','1997','80','4','2','0','0','0','55000','55000','50000','0','0','1','2000']
 
 
 @app.route('/predict',methods=['POST'])
@@ -53,7 +53,8 @@ def predict():
     if pred==1:
         
         return render_template('Home.html',predicted='The person default')
-    return render_template('Home.html',predicted='The person does not default')
+    else:
+        return render_template('Home.html',predicted='The person does not default')
 
 @app.route('/')
 def home():
