@@ -52,9 +52,9 @@ def predict():
     
     if pred==1:
         
-        return render_template('Home.html',predicted='The person default')
+        return render_template('pred.html',predicted='The person default')
     else:
-        return render_template('Home.html',predicted='The person does not default')
+        return render_template('pred.html',predicted='The person does not default')
 
 @app.route('/')
 def home():
